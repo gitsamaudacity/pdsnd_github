@@ -113,7 +113,7 @@ def station_stats(df):
     End_Station = df['End Station'].value_counts().idxmax()
     print('\nMost Commonly used end station:', End_Station)
 
-    # TO DO: display most frequent combination of start station and end station trip
+    # TO DO: display most frequent combination of start station and end station trip in seconds
     Combination_Station =     df.groupby(['Start Station', 'End Station']).count()
     print('\nMost Commonly used combination of start station and end station trip:', Start_Station, " & ", End_Station)
 
@@ -204,7 +204,7 @@ def main():
         user_stats(df)
         data_separation(df)
 
-#Allows code to be executed again        
+#Allows code to be executed again
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
