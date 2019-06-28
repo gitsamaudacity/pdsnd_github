@@ -1,3 +1,5 @@
+
+#make sure to import right python modules
 import time
 import pandas as pd
 import numpy as np
@@ -17,11 +19,11 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    while True: 
+    while True:
         city = input("\nPlease type in Chicaco,New York City or Washington\n").lower().title()
         if city not in ('Chicago','New York City','Washington'):
             print("Sorry,you wrote something wrong")
-            continue 
+            continue
         else:
             break
 
@@ -33,7 +35,7 @@ def get_filters():
             continue
         else:
             break
-            
+
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day = input("\nPlease choose a day:Monday,Tuesday, Wednesday, Thursday, Friday, Saturday,Sunday. Type all if there is no preference.\n").lower().title()
@@ -69,7 +71,7 @@ def load_data(city, month, day):
         df = df[df['month'] == month]
     if day != 'all':
          df = df[df['day_of_week'] == day.title()]
-        
+
     return df
 
 
@@ -175,7 +177,7 @@ def user_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def data_separation(df):
     row_count = 0
     raw_data = input("\n Would you like to see the raw data used? Please write 'yes' or 'no' \n").lower()
@@ -186,10 +188,10 @@ def data_separation(df):
         if raw_data == 'yes':
             print(df[row_count: row_count + 5])
             row_count += 5
-            
-        raw_data = input("\n Would you like to see five more rows of the data used to compute the stats? Please write 'yes' or 'no' \n").lower()       
-            
-        
+
+        raw_data = input("\n Would you like to see five more rows of the data used to compute the stats? Please write 'yes' or 'no' \n").lower()
+
+
 def main():
     while True:
         city, month, day = get_filters()
